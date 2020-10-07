@@ -1,0 +1,29 @@
+title: Code Execution via IEAdvpack LOLbin
+id: 93cf06d7-ef46-4b66-992b-03ae71785f62
+description: Detects code execution via funtions RegisterOCX or LaunchINFSection of IEAdvpack.dll library
+status: experimental
+references:
+    - https://twitter.com/pabraeken/status/991695411902599168
+    - https://bohops.com/2018/03/10/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence-part-2/
+author: Julia Fomina, oscd.community
+date: 2020/10/06
+tags:
+    - attack.defense_evasion
+    - attack.t1085.011
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_1:
+        Image|endswith: '\rundll32.exe'
+        CommandLine|contains: 
+            - 'IEAdvpack'
+            - 'ieadvpack'
+    selection_2:
+        CommandLine|contains: 
+            - 'RegisterOCX'
+            - 'LaunchINFSection'
+    condition: selection_1 and selection_2
+level: medium
+falsepositives:
+    - Unknown
