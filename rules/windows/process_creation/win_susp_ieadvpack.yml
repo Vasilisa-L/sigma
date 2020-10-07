@@ -1,12 +1,12 @@
-title: Code Execution via IEAdvpack LOLbin
+title: Code Execution via IEAdvpack.dll
 id: 93cf06d7-ef46-4b66-992b-03ae71785f62
-description: Detects code execution via funtions RegisterOCX or LaunchINFSection of IEAdvpack.dll library
+description: Detects arbitrary code execution via funtions RegisterOCX or LaunchINFSection of IEAdvpack.dll library
 status: experimental
 references:
     - https://twitter.com/pabraeken/status/991695411902599168
     - https://bohops.com/2018/03/10/leveraging-inf-sct-fetch-execute-techniques-for-bypass-evasion-persistence-part-2/
 author: Julia Fomina, oscd.community
-date: 2020/10/06
+date: 2020/10/07
 tags:
     - attack.defense_evasion
     - attack.t1085.011
